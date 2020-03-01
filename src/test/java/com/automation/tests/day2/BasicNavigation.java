@@ -34,7 +34,7 @@ public class BasicNavigation {
         if(expectedTitle.equals(title)){
             System.out.println("TEST PASSED !");
         }else{
-            System.out.println("TEST FAILED  !");
+            System.out.println("TEST FAILED !");
         }
 
         //to close browser
