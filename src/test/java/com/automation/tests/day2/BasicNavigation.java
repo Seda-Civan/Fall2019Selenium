@@ -1,6 +1,7 @@
 package com.automation.tests.day2;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,14 +16,20 @@ public class BasicNavigation {
         WebDriver driver = new ChromeDriver();
         //in Selenium everything starts from WebDriver interface
         //Chrome extends RemoteWebDriver  --> implements WebDriver
+        //every ChromeDriver IS-A WebDriver
 
         String url = "http://google.com";
         //.get will open website, open the door
         driver.get(url);
 
+        /* my practice code
+        driver.findElement(By.xpath("//input[@title='Search']")).sendKeys("hello world");
+        Thread.sleep(1000);
+        driver.findElement(By.name("btnK")).click();
+        */
+
         //to maximize browser
         driver.manage().window().maximize();
-
         //there is an option to make it fullscreen also, but usually we do not use it that much
        // driver.manage().window().fullscreen();
 
@@ -34,9 +41,9 @@ public class BasicNavigation {
         //returns <title>Some title</title> text
         String title = driver.getTitle();
         System.out.println("title is ..." +title);
-
         String expectedTitle = "Google";
 
+        //What is our test now? we will test the title
         //equals is more accurate than contains
         if(expectedTitle.equals(title)){
             System.out.println("TEST PASSED !");
@@ -46,6 +53,9 @@ public class BasicNavigation {
 
         //go to another website within the same window
         driver.navigate().to("http://amazon.com");
+
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iphone x 16gb");
+        driver.findElement(By.className("nav-input")).click();
 
         if(driver.getTitle().toLowerCase().contains("amazon")){
             System.out.println("Test Passed ! ");
@@ -75,8 +85,7 @@ public class BasicNavigation {
         Thread.sleep(3000);
 
         //must be at the end
-        //to close browser
-        driver.close();
+        driver.close();//to close browser
         //browser can not close itself
 
     }
