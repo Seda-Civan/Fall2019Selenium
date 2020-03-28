@@ -1,4 +1,4 @@
-package com.automation.tests.homework_3;
+package com.automation.tests.homework.hw_3;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
@@ -19,7 +19,7 @@ public class TestCase_6 {
     private By signUpPageEmailBy = By.name("email");
     private By signupBy = By.name("wooden_spoon");
     private By signupMessageBy = By.xpath("//*[text()='Thank you for signing up. Click the button below to return to the home page.']");
-    private By doNotReplyBy = By.xpath("//tr//td[text()=\"Thanks for subscribing to practice.cybertekschool.com!\"]");
+   // private By doNotReplyBy = By.xpath("//tr//td[text()=\"Thanks for subscribing to practice.cybertekschool.com!\"]");
     private By emailIsFromBy = By.id("odesilatel");
     private By subjectBy = By.id("predmet");
 
@@ -36,7 +36,7 @@ public class TestCase_6 {
         //Step 2. Copy and save email as a string.
         String email = driver.findElement(emailBy).getText();
 
-        //Step 3. Then go to “https://practice- cybertekschool.herokuapp.com”
+        //Step 3. Then go to “https://practice-cybertekschool.herokuapp.com”
         driver.get(urlCybertek);
         driver.manage().window().maximize();
 
@@ -44,7 +44,7 @@ public class TestCase_6 {
         driver.findElement(mailingListBy).click();
 
         //Step 5. Enter any valid name.
-        driver.findElement(fullNameBy).sendKeys("Naomi");
+        driver.findElement(fullNameBy).sendKeys("Naomi Thampson");
 
         //Step 6. Enter email from the Step 2.
         driver.findElement(signUpPageEmailBy).sendKeys(email);
@@ -63,14 +63,16 @@ public class TestCase_6 {
 
         //Step 10. Verify that you’ve received an email from
         //“do-not-reply@practice.cybertekschool.com”
-        WebElement doNotReplyMail = driver.findElement(doNotReplyBy);
-        String actual = doNotReplyMail.getText();
-        String expected = "Thanks for subscribing to practice.cybertekschool.com!";
-        assertEquals(actual,expected);
+        WebElement emailAd = driver.findElement(By.xpath("//tbody[@id='schranka']/tr[1]/td[1]"));
+        System.out.println("emailAd.isDisplayed() = " + emailAd.isDisplayed());
+        String actual = emailAd.getText().trim();
+        String expected = "do-not-reply@practice.cybertekschool.com";
+        assertEquals(actual, expected);
+       
 
       //  Step 11. Click on that email to open it.
         BrowserUtils.wait(2);
-        doNotReplyMail.click();
+        emailAd.click();
 
         //Step 12. Verify that email is from: “do-not- reply@practice.cybertekschool.com”
         WebElement emailFromCybertek = driver.findElement(emailIsFromBy);

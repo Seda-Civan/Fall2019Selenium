@@ -28,11 +28,11 @@ public class FindElementsTest {
             System.out.println(link.getAttribute("href"));
             System.out.println();
             //we will open every link and come back
-            //  link.click(); //click on link
+            //  link.click();      //click on link
             //  Thread.sleep(2);
-            //  driver.navigate().back(); //go back
+            //  driver.navigate().back();  //go back
         }
-        //above code gave us this below exception SOO POPULAR EXCEPTION = INTERVIEW =>
+        //above code gave us this below exception SO POPULAR EXCEPTION => INTERVIEW <=
         //What is StaleElementReferenceException ?  ==> occurs when element is not attached to the page anymore
         //what does it mean : there is a webElement but connection is lost
         //element is old ; selenium has that element but can not use it anymore,
@@ -45,7 +45,7 @@ public class FindElementsTest {
         //in general for each loop can be used only for collections
         //and you are using when you do not care about when to start when to stop iteration and order
         //in for loop; you can start in reverse order, you can start in the middle, or wherever you desire
-        //in our case i want to ignore first link because it brings us to home => it is not really bring us nowhere
+        //in our case i want to ignore first link because it brings us to home page=> it is not really bring us nowhere
         //it is useless SO => we will start from 2nd one
         for (int i = 1; i < links.size(); i++) {
             links.get(i).click();
@@ -56,7 +56,7 @@ public class FindElementsTest {
             //some kind of reference number and it becomes invalid once you leave the page
             //so every time when we go back; we have to refresh page find all elements again and continue like this
             //find all elements and refresh by making it equals to driver assign to driver
-            //we find all links again in here
+            //we find all links again in here:
             links = driver.findElements(By.tagName("a"));
 
         }
@@ -74,17 +74,10 @@ public class FindElementsTest {
                  }
 
         // findElements ==>> method to find 0+ elements. how many elements your locator pointing on you get them
-        //findElement   ==>> only 1 element at a time. if there is no element by given locator => NoSuchElementException
-
+        // findElement  ==>> only 1 element at a time. if there is no element by given locator => NoSuchElementException
 
 
         //we can solve in 2 steps also :
         //driver.findElements(By.tagName("a")).get(i).click();
-        // driver.navigate().back();
-
-
-
-
-
-
+        //driver.navigate().back();
     }

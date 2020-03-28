@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 //STATIC IMPORT OF ALL ASSERTIONS
 import static org.testng.Assert.*;
-
+//MARCH/15/2020/SUNDAY/ DAY 9
 public class LoginPageTests {
 
     private WebDriver driver;
@@ -43,7 +43,7 @@ public class LoginPageTests {
         //or  => assertTrue(driver.findElement(By.className("alert alert-error")).isDisplayed());
         assertTrue(warningElement.isDisplayed());
         //assertEquals(warningElement.getText(), "Invalid user name or password.");
-        //since we did static import we drictly use static method without specifying classname
+        //since we did static import we directly use static method without specifying classname
 
         String expected = "Invalid user name or password.";
         String actual = warningElement.getText();
@@ -51,7 +51,7 @@ public class LoginPageTests {
     }
 
     @Test(description = "Login as store manager and verify that title is equals to dashboard")
-    public void loginAsStoreMAnager(){
+    public void loginAsStoreManager(){
         driver.findElement(usernameBy).sendKeys(username);
         driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
         BrowserUtils.wait(2);

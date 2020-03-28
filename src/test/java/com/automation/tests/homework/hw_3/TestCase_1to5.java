@@ -1,4 +1,4 @@
-package com.automation.tests.homework_3;
+package com.automation.tests.homework.hw_3;
 
 import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import java.util.List;
+
 import static org.testng.Assert.*;
 
 public class TestCase_1to5 {
@@ -26,7 +26,7 @@ public class TestCase_1to5 {
     //private By cplusplusBy = By.xpath("//label[contains(text(),'C++')]");
     //private By cplusplusBy = By.xpath("//input[@id=\"inlineCheckbox1\"]/following-sibling::label");
     //private By cplusplusBy = By.cssSelector("[class=\"form-check form-check-inline\"]>label[for=\"inlineCheckbox1\"]");
-    private By cplusplusBy = By.xpath("//label[text()='JavaScript']/preceding-sibling::input");
+    private By cplusplusBy = By.xpath("//label[text()='C++']/preceding-sibling::input");
     private By javaBy = By.cssSelector("[for=\"inlineCheckbox2\"]");
     private By javaScriptBy = By.cssSelector("[for=\"inlineCheckbox3\"]");
 
@@ -52,7 +52,7 @@ public class TestCase_1to5 {
 
     /*
     Test case #1
-    Step 1. Go to “https://practice- cybertekschool.herokuapp.com”
+    Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
     Step 2. Click on “Registration Form”
     (Step1 and 2 are in setup)
     Step 3. Enter “wrong_dob” into date of birth input box.
@@ -69,7 +69,7 @@ public class TestCase_1to5 {
 
     /*
     Test case #2
-    Step 1. Go to “https://practice- cybertekschool.herokuapp.com”
+    Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
     Step 2. Click on “Registration Form”
     (Step1 and 2 are in setup)
     Step 3. Verify that following options for programming languages are displayed: c++, java, JavaScript
@@ -77,24 +77,24 @@ public class TestCase_1to5 {
     @Test (description = "Verify that options for programming languages are displayed")
     public void languageOptions(){
         //verifying with List<WebElement>
-        List<WebElement> allLanguages = driver.findElements(By.className("form-check-label"));
-        for(WebElement language : allLanguages){
-            assertTrue(language.isDisplayed(), "Language options are not displayed");
-        }
-//        verifying one by one
-//        WebElement cplusplus = driver.findElement(cplusplusBy);
-//        WebElement java = driver.findElement(javaBy);
-//        WebElement javaScript = driver.findElement(javaScriptBy);
-//
-//        assertTrue(cplusplus.isDisplayed());
-//        assertTrue(java.isDisplayed());
-//        assertTrue(javaScript.isDisplayed());
+//        List<WebElement> allLanguages = driver.findElements(By.className("form-check-label"));
+//        for(WebElement language : allLanguages){
+//            assertTrue(language.isDisplayed(), "Language options are not displayed");
+//        }
+        //verifying one by one
+        WebElement cplusplus = driver.findElement(cplusplusBy);
+        WebElement java = driver.findElement(javaBy);
+        WebElement javaScript = driver.findElement(javaScriptBy);
+
+        assertTrue(cplusplus.isDisplayed());
+        assertTrue(java.isDisplayed());
+        assertTrue(javaScript.isDisplayed());
     }
 
 
     /*
     Test case #3
-    Step 1. Go to “https://practice- cybertekschool.herokuapp.com”
+    Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
     Step 2. Click on “Registration Form”
     (Step1 and 2 are in setup)
     Step 3. Enter only one alphabetic character into first name input box.
@@ -111,8 +111,7 @@ public class TestCase_1to5 {
 
     /*
     Test case #4
-    Step 1. Go to https://practice-
-    cybertekschool.herokuapp.com
+    Step 1. Go to https://practice-cybertekschool.herokuapp.com
     Step 2. Click on “Registration Form”
     (Step1 and 2 are in setup)
     Step 3. Enter only one alphabetic character into last name input box.
@@ -129,7 +128,7 @@ public class TestCase_1to5 {
 
     /*
     Test case #5
-    Step 1. Go to “https://practice- cybertekschool.herokuapp.com”
+    Step 1. Go to “https://practice-cybertekschool.herokuapp.com”
     Step 2. Click on “Registration Form”
     (Step1 and 2 are in setup)
     Step 3. Enter any valid firstName
